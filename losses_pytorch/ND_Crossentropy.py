@@ -27,7 +27,7 @@ class CrossentropyND(torch.nn.CrossEntropyLoss):
         inp = inp.contiguous()
         inp = inp.view(-1, num_classes)
 
-        target = target.view(-1,)
+        target = target.contiguous().view(-1,)
 
         return super(CrossentropyND, self).forward(inp, target)
 
